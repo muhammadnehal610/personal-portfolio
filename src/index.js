@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import App from './App'
-import reportWebVitals from './reportWebVitals'
-import './index.css'
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 // TODO:  Add mouse-trail, work page
 ReactDOM.render(
@@ -15,7 +15,7 @@ ReactDOM.render(
     </BrowserRouter>
     ,
   </React.StrictMode>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
 
-reportWebVitals()
+reportWebVitals();

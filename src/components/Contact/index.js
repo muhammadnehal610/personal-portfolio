@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react'
-import { useRef } from 'react'
+import { useEffect, useState } from "react";
+import { useRef } from "react";
 
-import emailjs from '@emailjs/browser'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import Loader from 'react-loaders'
-import { ClipLoader } from 'react-spinners'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import emailjs from "@emailjs/browser";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import Loader from "react-loaders";
+import { ClipLoader } from "react-spinners";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import AnimatedLetters from '../AnimatedLetters'
-import './index.scss'
+import AnimatedLetters from "../AnimatedLetters";
+import "./index.scss";
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
-  const [loading, setLoading] = useState(false)
-  const contactArray = 'Contact Me'.split('')
+  const [letterClass, setLetterClass] = useState("text-animate");
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+  const contactArray = "Contact Me".split("");
 
   useEffect(() => {
     return setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-  }, [])
+      setLetterClass("text-animate-hover");
+    }, 3000);
+  }, []);
 
   const sendEmail = (e) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm(
@@ -36,38 +36,38 @@ const Contact = () => {
       )
       .then(
         () => {
-          toast.success('Message successfully sent!', {
-            position: 'bottom-center',
+          toast.success("Message successfully sent!", {
+            position: "bottom-center",
             autoClose: 3500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'dark',
-          })
+            theme: "dark",
+          });
           const timeout = setTimeout(() => {
-            form.current.reset()
-            setLoading(false)
-          }, 3800)
+            form.current.reset();
+            setLoading(false);
+          }, 3800);
 
-          return () => clearTimeout(timeout)
+          return () => clearTimeout(timeout);
         },
         () => {
-          setLoading(false)
-          toast.error('Failed to send the message, please try again', {
-            position: 'bottom-center',
+          setLoading(false);
+          toast.error("Failed to send the message, please try again", {
+            position: "bottom-center",
             autoClose: 3500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: 'dark',
-          })
+            theme: "dark",
+          });
         }
-      )
-  }
+      );
+  };
 
   return (
     <>
@@ -121,7 +121,7 @@ const Contact = () => {
                     className="flat-button"
                     disabled={loading}
                   >
-                    {loading ? <ClipLoader color="#fff" size={20} /> : 'SEND'}
+                    {loading ? <ClipLoader color="#fff" size={20} /> : "SEND"}
                   </button>
                 </li>
               </ul>
@@ -142,7 +142,7 @@ const Contact = () => {
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[22.56263, 88.36304]}>
               <Popup>
-                Sudip lives here, come over for a cup of coffee :{')'}
+                Sudip lives here, come over for a cup of coffee :{")"}
               </Popup>
             </Marker>
           </MapContainer>
@@ -150,7 +150,7 @@ const Contact = () => {
       </div>
       <Loader type="pacman" />
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
